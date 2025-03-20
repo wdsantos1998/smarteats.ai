@@ -4,8 +4,6 @@ import sys
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()  # Loads the .env file into environment variables
-
 load_dotenv()  # Load environment variables from .env
 api_key = os.getenv('OPENAI_API_KEY')
 
