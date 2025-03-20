@@ -37,9 +37,9 @@ Trying to eat healthier but stuck wondering what or where to eat when hunger hit
 
 
 ### To Run the Project
-1- **This project uses Node Package Manager** so you must install npm by using `npm install`
-2- **Install the openai package under `root/service`. You can install the openai package by running `pip install openai` or if you are using pip3 - run `pip3 install openai`**
-3- **Start the frontend React+Vite** go to the root folder `/smarteats` and run `npm run dev`
-4- **Start service side** go to the service folder `/smarteats/service` and run `npm run service`
+- 1- **This project uses Node Package Manager** so you must install npm by using `npm install`
+- 2- **Install the openai package under `root/service`. You can install the openai package by running `pip install openai` or if you are using pip3 - run `pip3 install openai`**
+- 3- **Start the frontend React+Vite** go to the root folder `/smarteats` and run `npm run dev`
+- 4- **Start service side** go to the service folder `/smarteats/service` and run `npm run service`
 
 ##By Julio Ferreira and Wesley dos Santos##
