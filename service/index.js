@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -22,6 +23,12 @@ app.use(express.static('public'));
 
 // Router for service endpoints
 const apiRouter = express.Router();
+
+app.use(cors({
+  origin: 'https://smarteats-ai.onrender.com',
+  credentials: true
+}));
+
 app.use('/api', apiRouter);
 
 // ________________________________MIDDLEWARE___________________________________
