@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css">
+
+        <title>Meal log</title>
+    </head>
+    <body>
+        <header>
+            <h1>SmartEats.AI</h1>
+            <nav>
+                <a href="index.html">Login</a> |
+                <a href="home.html">Home</a> |
+                <a href="meal_tracker.html">Meal Tracker</a>
+            </nav>
+        </header>
+    
+        <main>
+            <div class="box-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Calories</th>
+                        <th>Protein</th>
+                        <th>Carbs</th>
+                        <th>Fat</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>2200</td>
+                        <td>136</td>
+                        <td>289</td>
+                        <td>63</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Food</th>
+                        <th>Calories</th>
+                        <th>Protein (g)</th>
+                        <th>Carbs (g)</th>
+                        <th>Fat (g)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Grilled Chicken</td>
+                        <td>220</td>
+                        <td>25</td>
+                        <td>0</td>
+                        <td>5</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Avocado Toast</td>
+                        <td>300</td>
+                        <td>8</td>
+                        <td>34</td>
+                        <td>14</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Banana</td>
+                        <td>105</td>
+                        <td>1</td>
+                        <td>27</td>
+                        <td>0</td>
+                        <td><button>Edit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="box-container">          
+            <form method="post">
+                <div>
+                    <label for="food">Food:</label>
+                    <input type="text" id="food" name="food" placeholder="Enter food name" required />
+                </div>
+                <div>
+                    <label for="calories">Calories:</label>
+                    <input type="number" id="calories" name="calories" placeholder="0" required />
+                </div>
+                <div>
+                    <label for="protein">Protein (g):</label>
+                    <input type="number" id="protein" name="protein" placeholder="0" required />
+                </div>
+                <div>
+                    <label for="carbs">Carbs (g):</label>
+                    <input type="number" id="carbs" name="carbs" placeholder="0" required />
+                </div>
+                <div>
+                    <label for="fat">Fat (g):</label>
+                    <input type="number" id="fat" name="fat" placeholder="0" required />
+                </div>
+                <button type="submit">Add Meal</button>
+            </form>
+        </div>  
+        </main>
+
+        <footer>
+            <span class="text-reset">j. ferreira</span> | 
+            <a href="https://github.com/juliosud/startup">GitHub</a>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+.vscode/
+.DS_Store
+node_modules/
+.env
+*.env
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+out/
