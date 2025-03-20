@@ -12,6 +12,8 @@ export function MealTracker() {
     carbs: '',
     fat: '',
   });
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
 
   const isToday = (mealDate) => {
     const today = new Date().toISOString().split('T')[0];
@@ -21,7 +23,7 @@ export function MealTracker() {
 
   //Authenticating user
   useEffect(() => {
-    fetch('/api/profile', { credentials: 'include' })
+    fetch(`${API_BASE_URL}/api/profile`, { credentials: 'include' })
       .then(response => {
         if (!response.ok) {
           navigate('/');

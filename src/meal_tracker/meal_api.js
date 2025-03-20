@@ -1,7 +1,9 @@
 //get meals
 export async function getMeals() {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
+
   try {
-    const response = await fetch('/api/meals', { credentials: 'include' });
+    const response = await fetch(`${API_BASE_URL}/api/meals`, { credentials: 'include' });
     return response.ok ? await response.json() : [];
   } catch (error) {
     console.error("Error fetching meals:", error);
@@ -11,8 +13,9 @@ export async function getMeals() {
 
 //add meal
 export async function addMeal(meal) {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
-    const response = await fetch('/api/meals', {
+    const response = await fetch(`${API_BASE_URL}/api/meals`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(meal),
@@ -26,8 +29,9 @@ export async function addMeal(meal) {
 }
 
 export async function updateMeal(id, updatedMeal) {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
-    const response = await fetch(`/api/meals/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/api/meals/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedMeal),
@@ -41,8 +45,9 @@ export async function updateMeal(id, updatedMeal) {
 }
 
 export async function deleteMeal(id) {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
-    const response = await fetch(`/api/meals/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/api/meals/${id}`, {
       method: 'DELETE',
       credentials: 'include',
     });
@@ -54,8 +59,9 @@ export async function deleteMeal(id) {
 }
 
 export async function logout() {
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
   try {
-    const response = await fetch("/api/auth/logout", {
+    const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
       method: "DELETE",
       credentials: "include",
     });

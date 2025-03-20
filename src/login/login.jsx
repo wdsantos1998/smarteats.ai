@@ -6,9 +6,10 @@ import { Unauthenticated } from "./unauthenticated";
 export function Login() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const API_BASE_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch('/api/profile', { credentials: 'include' })
+    fetch(`${API_BASE_URL}/api/profile`, { credentials: 'include' })
       .then(response => response.json())
       .then(data => {
         if (data.email) {

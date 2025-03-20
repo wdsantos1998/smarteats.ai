@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 export function Home() {
     const navigate = useNavigate()
+    const API_BASE_URL = import.meta.env.VITE_API_URL;
     const [nutrients, setNutrients] = useState({
         calories: 0,
         protein: 0,
@@ -16,7 +17,7 @@ export function Home() {
 
     //authenticate user
     useEffect(() => {
-        fetch('/api/profile', { credentials: 'include' })
+        fetch(`${API_BASE_URL}/api/profile`, { credentials: 'include' })
             .then(response => {
                 if (!response.ok) {
                     navigate('/'); 
@@ -69,7 +70,7 @@ export function Home() {
             setChatMessages(prevMessages => [...prevMessages, userMessage]);
 
             try {
-                const response = await fetch('/api/chat', {
+                const response = await fetch(`${API_BASE_URL}/api/chat`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
