@@ -8,9 +8,11 @@ export function Login() {
   const navigate = useNavigate();
   const API_BASE_URL = import.meta.env.VITE_API_URL;
 
-  useEffect(() => {
-    fetch(`${API_BASE_URL}/api/profile`, { credentials: 'include' })
-      .then(response => response.json())
+  fetch(`${API_BASE_URL}/api/profile`, { credentials: 'include' })
+      .then(response => {
+        if (!response.ok) throw new Error('Unauthorized');
+        return response.json();
+      })
       .then(data => {
         if (data.email) {
           setUser(data.email);
@@ -18,7 +20,7 @@ export function Login() {
         }
       })
       .catch(() => setUser(null));
-  }, []);
+
 
 
   const handleLoginSuccess = (email) => {

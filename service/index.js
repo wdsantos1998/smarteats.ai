@@ -182,13 +182,16 @@ apiRouter.delete('/meals/:id', verifyAuth, (req, res) => {
 
 // get user profile
 apiRouter.get('/profile', verifyAuth, (req, res) => {
-    const user = users.find(u => u.token === req.cookies[authCookieName]);
-        if (!user) {
-      return res.status(401).send({ msg: 'Unauthorized' });
-    }
-    res.send({ email: user.email });
-  });
-  
+  const tokenFromCookie = req.cookies[authCookieName]; // Read the token from cookies
+  const user = users.find(u => u.token === tokenFromCookie);
+
+  if (!user) {
+    return res.status(401).send({ msg: 'Unauthorized' });
+  }
+
+  res.send({ email: user.email });
+});
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -220,11 +223,13 @@ async function findUser(field, value) {
 
 // Set the auth cookie
 function setAuthCookie(res, authToken) {
-  res.cookie(authCookieName, authToken, {
-    secure: true,
+  res.cookie('token', authToken, {
     httpOnly: true,
-    sameSite: 'strict',
+    secure: true, // Only over HTTPS
+    sameSite: 'Strict', // or 'Lax'
+    maxAge: 1000 * 60 * 60 * 24 // 1 day
   });
+
 }
 
 // Start the server
